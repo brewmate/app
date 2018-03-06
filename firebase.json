@@ -1,0 +1,39 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix $RESOURCE_DIR run lint",
+      "npm --prefix $RESOURCE_DIR run build"
+    ]
+  },
+  "hosting": {
+    "predeploy": "yarn build",
+    "public": "dist",
+    "ignore": [
+      "**/.*",
+      "e2e/**",
+      "functions/**",
+      "node_modules/**",
+      "src/**",
+      "angular-cli.json",
+      "tsconfig.json",
+      "tslint.json",
+      "karma.conf.js",
+      "protractor.conf.js",
+      "README.md",
+      "yarn.lock"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

@@ -5,10 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --prod --aot --build-optimizer --vendor-chunk --named-chunks --extract-css --extract-licenses",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:client": "firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
